@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     get :callback, on: :collection
   end
 
+  resource :discourse, controller: :discourse, only: [] do
+    get :sso
+  end
+
   get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
 end

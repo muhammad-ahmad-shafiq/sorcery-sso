@@ -1,4 +1,7 @@
 <%= form_with url: user_sessions_path, method: :post, local: true do |f| %>
+  <%= hidden_field_tag :sso, params[:sso] %>
+  <%= hidden_field_tag :sig, params[:sig] %>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
