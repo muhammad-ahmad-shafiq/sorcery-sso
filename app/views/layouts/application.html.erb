@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sorcery Example App</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  	<div>
+  		<% if current_user %>
+      	<%= link_to 'Edit Profile', edit_user_path(current_user.id) %>
+      	<%= link_to 'Log out', logout_path, method: :delete %>
+      <% else %>
+      	<%= link_to 'Register', new_user_path %> |
+      	<%= link_to 'Login', :login %> |
+    		<%= link_to 'Login from HTTP', login_from_http_basic_users_path %> |
+    		<%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %> |
+    		<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+      <% end %>
+  	</div>
+
+    <%= yield %>
+  </body>
+</html>
