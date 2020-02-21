@@ -1,5 +1,5 @@
 class DiscourseController < ApplicationController
-  SECRET = 'abcdefghij'
+  SECRET = 'abcdefghij' # We can move this to ENV variables also depending upon requirement.
 
   skip_before_action :require_login
   before_action :validate_request
